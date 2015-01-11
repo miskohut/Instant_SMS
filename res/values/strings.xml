@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instant SMS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_dsiplay_new">DsiplayNewActivity</string>
+    <string name="new_message_button">new message</string>
+    <string name="title_activity_display_new_message">new message</string>
+    <string name="to">to:</string>
+    <string name="what">what?</string>
+    <string name="button_save">save</string>
+    <string name="title_activity_display_edit_message">DisplayEditMessageActivity</string>
+    <string name="title_activity_hello">hello</string>
+    <string name="b_send">Send</string>
+    <string name="action_search">Search</string>
+</resources>
