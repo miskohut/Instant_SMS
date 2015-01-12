@@ -1,10 +1,12 @@
 package com.acpp.Instant_SMS;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -15,7 +17,6 @@ import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -28,11 +29,10 @@ public class NewMessage extends ActionBarActivity {
     protected Button save;
     protected EditText saveAs;
     protected AutoCompleteTextView to;
+    protected Button openContacts;
     protected SimpleAdapter adapter;
-    protected ArrayAdapter<HashMap<String, String>> hashAdapter;
-    protected ArrayList<String> names = new ArrayList<String>();
-    protected ArrayList<String> numbers = new ArrayList<String>();
     protected ArrayList<Map<String, String>> contacts = new ArrayList<Map<String, String>>();
+    protected final static int PICK_CONTACT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +49,32 @@ public class NewMessage extends ActionBarActivity {
         save = (Button) findViewById(R.id.b_save);
         saveAs = (EditText) findViewById(R.id.save_as);
 
+
         to.setAdapter(adapter);
+
+        to.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Map<String, String> map = (Map<String, String>) adapterView.getItemAtPosition(i);
+
+                String name  = map.get("Name");
+                String number = map.get("Number");
+                to.setText("" + number);
+                saveAs.setText("" + name);
+            }
+        });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getToMainActivity();
+            }
+        });
+
+        openContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //TODO: choose contact from contacts
             }
         });
 
@@ -139,24 +159,5 @@ public class NewMessage extends ActionBarActivity {
         }
     }
 
-    private ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for(String stringValue : stringArray) {
-            try {
-                //Convert String to Integer, and store it into integer array list.
-                result.add(Integer.parseInt(stringValue));
-            } catch(NumberFormatException nfe) {
-                //System.out.println("Could not parse " + nfe);
-                System.out.println("Parsing failed! " + stringValue + " can not be an integer");
-            }
-        }
-        return result;
-    }
-    public static int[] convertIntegers(ArrayList<Integer> integers) {
-        int[] ret = new int[integers.size()];
-        for (int i=0; i < ret.length; i++) {
-            ret[i] = integers.get(i).intValue();
-        }
-        return ret;
-    }
+
 }
