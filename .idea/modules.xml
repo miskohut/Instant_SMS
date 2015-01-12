@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/MEGA/ideaprojects/Instant SMS/Instant SMS.iml" filepath="$USER_HOME$/MEGA/ideaprojects/Instant SMS/Instant SMS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../support/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/../support/android-support-v7-appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Instant SMS.iml" filepath="$PROJECT_DIR$/Instant SMS.iml" />
+      <module fileurl="file:///opt/android-sdk-linux/extras/android/support/v7/appcompat/android-support-v7-appcompat.iml" filepath="/opt/android-sdk-linux/extras/android/support/v7/appcompat/android-support-v7-appcompat.iml" />
     </modules>
   </component>
 </project>

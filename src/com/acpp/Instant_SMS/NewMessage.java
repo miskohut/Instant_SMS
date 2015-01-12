@@ -24,29 +24,32 @@ import java.util.Map;
  */
 public class NewMessage extends ActionBarActivity {
 
-    private EditText what;
-    private Button save;
-    private EditText saveAs;
-    private AutoCompleteTextView to;
-    private SimpleAdapter adapter;
-    private ArrayAdapter<HashMap<String, String>> hashAdapter;
-    ArrayList<String> names = new ArrayList<String>();
-    ArrayList<String> numbers = new ArrayList<String>();
-    List<Map<String, String>> contacts = new ArrayList<Map<String, String>>();
+    protected EditText what;
+    protected Button save;
+    protected EditText saveAs;
+    protected AutoCompleteTextView to;
+    protected SimpleAdapter adapter;
+    protected ArrayAdapter<HashMap<String, String>> hashAdapter;
+    protected ArrayList<String> names = new ArrayList<String>();
+    protected ArrayList<String> numbers = new ArrayList<String>();
+    protected ArrayList<Map<String, String>> contacts = new ArrayList<Map<String, String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_message);
 
-        //readContacts();
+        readContacts();
 
-        //adapter = new SimpleAdapter(this, contacts, R.layout.contacts_view, new String[] {"Name: ", "Number: "}, new int[] {R.id.name, R.id.number});
+        adapter = new SimpleAdapter(this, contacts, R.layout.contact, new String[] {"Name", "Number"}, new int[] {R.id.name, R.id.number});
+
 
         to = (AutoCompleteTextView) findViewById(R.id.to);
         what = (EditText) findViewById(R.id.what);
         save = (Button) findViewById(R.id.b_save);
         saveAs = (EditText) findViewById(R.id.save_as);
+
+        to.setAdapter(adapter);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +113,8 @@ public class NewMessage extends ActionBarActivity {
 
 
     public void readContacts() {
+
+
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
@@ -125,9 +130,8 @@ public class NewMessage extends ActionBarActivity {
                         new String[]{id}, null);
                 while (pCur.moveToNext()) {
                     Map<String, String> map = new HashMap<String, String>();
-                    map.put("Name: ", cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
-                    contacts.add(map);
-                    map.put("Number: ",  pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
+                    map.put("Name", cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
+                    map.put("Number", pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
                     contacts.add(map);
                 }
                 pCur.close();

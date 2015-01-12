@@ -15,15 +15,23 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="android-support-v7-appcompat" />
-    <orderEntry type="module-library">
+    <orderEntry type="module" module-name="android-support-v7-appcompat" exported="" />
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../appcompat/libs" />
+          <root url="jar:///opt/android-sdk-linux/extras/android/support/v7/appcompat/libs/android-support-v4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file:///opt/android-sdk-linux/extras/android/support/v7/appcompat/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar:///opt/android-sdk-linux/extras/android/support/v7/appcompat/libs/android-support-v7-appcompat.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

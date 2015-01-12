@@ -16,5 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewMessage"/>
+        <activity android:name=".EditMessage"/>
+
+
+
     </application>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
 </manifest> 

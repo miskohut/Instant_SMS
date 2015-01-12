@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants"
-    android:theme="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
-
+    android:background="#ffffff" >
 
 
     <TextView
@@ -15,7 +14,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#000000"
-        android:textSize="12pt" />
+        android:textSize="12pt"
+        android:layout_marginLeft="@dimen/abc_panel_menu_list_width"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +27,8 @@
         android:layout_alignParentStart="true"
 
         android:textColor="#000000"
-        android:textSize="8pt" />
+        android:textSize="8pt"
+        android:layout_marginLeft="@dimen/abc_panel_menu_list_width"/>
 
     <Button
         android:layout_width="wrap_content"

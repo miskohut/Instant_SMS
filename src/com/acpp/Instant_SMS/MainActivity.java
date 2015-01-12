@@ -15,11 +15,7 @@ import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.ArrayList;
 
@@ -70,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
 
                 setPosition(position);
 
-                Intent intent = new Intent(MainActivity.this, NewMessage.class);
+                Intent intent = new Intent(MainActivity.this, EditMessage.class);
                 intent.putExtra("to", to.get(position));
                 intent.putExtra("what", what.get(position));
                 intent.putExtra("saveAs", saveAs.get(position));
